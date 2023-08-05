@@ -2,6 +2,7 @@
   "name": "autocomplete-mermaid-er-diagram",
   "displayName": "Mermaid ER diagram Autocomplete",
   "description": "Autocomplete Mermaid ER diagram with ease",
+  "publisher": "Alireza Davoudi",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.70.0"
