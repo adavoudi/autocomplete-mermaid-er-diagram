@@ -27,18 +27,22 @@ class MmdCompletionItemProvider implements vscode.CompletionItemProvider {
 				try {
 					const content = fs.readFileSync(file.fsPath).toString();
 					const blocks = content.split('%% export');
+					const path = file.path.split("/")
+					const file_name = path[path.length - 1]
 
 					for (let block of blocks.slice(1)) {
-						const lines: any[] = []
+						const lines: any[] = ["\t%% imported from `" + file_name + "`"]
 						for (let line of block.split('\n')) {
+							if (line.trim().length == 0) {
+								continue
+							}
 							lines.push(line)
 							if (line.trim() == '}') {
 								break
 							}
 						}
 
-						const path = file.path.split("/")
-						const label = lines[1].trim() + " - " + path[path.length - 1];
+						const label = lines[1].trim() + " - " + file_name;
 						const detail = lines.join('\n').trim();
 
 						let item = new vscode.CompletionItem(label, vscode.CompletionItemKind.Snippet);
