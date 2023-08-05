@@ -6,6 +6,7 @@
   "engines": {
     "vscode": "^1.70.0"
   },
+  "repository": "https://github.com/adavoudi/autocomplete-mermaid-er-diagram",
   "categories": [
     "Other"
   ],
